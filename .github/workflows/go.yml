@@ -37,6 +37,8 @@ jobs:
       run: |
         export MSG=`git log --format=%B -n 1 HEAD`
         cd knshsample/public
+        git config --local user.name "kenshi kamata"
+        git config --local user.email "kenshi.kamata@gmail.com"
         git add .
         git commit -m "${MSG}"
         git push origin master
