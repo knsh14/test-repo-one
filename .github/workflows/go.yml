@@ -22,9 +22,10 @@ jobs:
     - name: install hugo
       run: |
         go get -u github.com/gohugoio/hugo
-        go install github.com/gohugoio/hugo
+
     - name: setup public repo
-      run: git clone --depth 1 git@github.com:knsh14/test-repo-two.git knshsample/public
+      run: |
+          git clone --depth 1 https://knsh14:${{ secrets.GITHUB_TOKEN }}@github.com/knsh14/test-repo-two.git knshsample/public
 
     - name: Build
       run: cd knshsample && hugo
