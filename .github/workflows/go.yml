@@ -19,26 +19,19 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
 
-    - name: Get dependencies
-      run: |
-        go get -v -t -d ./...
-        if [ -f Gopkg.toml ]; then
-            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-            dep ensure
-        fi
     - name: install hugo
       run: |
         go get -u github.com/gohugoio/hugo
         go install github.com/gohugoio/hugo
+    - name: setup public repo
+      run: git clone --depth 1 git@github.com:knsh14/test-repo-two.git knshsample/public
 
     - name: Build
-      run: cd knsh14sample && hugo
+      run: cd knshsample && hugo
 
     - name: Push
       run: |
-        cd knsh14sample/public
-        git init
-        git remote add origin git@github.com:knsh14/test-repo-two.git
+        MSG=`git log --format=%B -n 1 HEAD`
+        cd knshsample/public
         git add .
-        git commit -m "update"
-        git push origin master
+        git commit -m $MSG
