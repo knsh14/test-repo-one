@@ -26,7 +26,7 @@ jobs:
 
     - name: setup public repo
       run: |
-          git clone --depth 1 https://knsh14:${{ secrets.GITHUB_TOKEN }}@github.com/knsh14/test-repo-two.git knshsample/public
+          git clone --depth 1 https://knsh14:${{ secrets.MY_GITHUB_ACCESS_TOKEN }}@github.com/knsh14/test-repo-two.git knshsample/public
 
     - name: Build
       run: |
