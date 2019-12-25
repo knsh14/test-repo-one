@@ -8,8 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create CLI Command
-        env:
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-            echo github.context.issue.number
+      run: |
+        echo github.context.issue.number
