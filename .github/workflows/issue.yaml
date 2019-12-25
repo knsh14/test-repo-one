@@ -9,4 +9,4 @@ jobs:
     steps:
     - name: Create CLI Command
       run: |
-        echo {{ github.context.issue.number }}
+        echo ${{ github.context.issue.number }}
