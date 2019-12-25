@@ -1,0 +1,15 @@
+name: Issue
+on:
+  issues:
+    types: [opened, edited]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create CLI Command
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+            echo github.context.issue.number
