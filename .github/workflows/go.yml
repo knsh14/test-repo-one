@@ -1,8 +1,4 @@
 name: Go
-on:
-  push:
-    branches:
-    - master
 jobs:
 
   build:
