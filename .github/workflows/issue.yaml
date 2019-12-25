@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create CLI Command
-      run: |
-        echo ${{ github.context.issue.number }}
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
